@@ -222,6 +222,36 @@
             margin-bottom: 1rem;
         }
 
+        .skill-tag {
+            display: inline-block;
+            color: var(--secondary-color);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-size: 0.70rem;
+            padding: 1px 10px;
+            border-radius: 5px;
+            margin: 3px 5px 1px 0px;
+            margin-bottom: 1.5rem;
+            white-space: nowrap;
+            border: 1px solid transparent;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        
+        /* Light Mode */
+        body[data-theme="light"] .skill-tag {
+            background-color: #f0f0f5;
+            color: #3b3b3b;
+            border-color: #e0e0e0;
+        }
+
+        /* Dark Mode */
+        body[data-theme="dark"] .skill-tag {
+            background-color: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+
+
         /* Skills Grid */
         .skills-grid {
             display: grid;
@@ -396,78 +426,49 @@ Lately, I've been building ML models for wildfire prediction and experimenting w
     <section id="projects" class="section">
         <h2>Projects</h2>
         <div class="experience-card">
-            <h3><i class="fas fa-trophy"></i> Youtube Trending Video Analysis (US) </h3>
+            <h3><a href="https://github.com/jomarisbanua/Youtube_Video_Trending_Analysis_In_The_US" target="_blank" class="org-link"><i class="fa-brands fa-youtube"></i> Youtube Trending Video Analysis (US) </a></h3>
+            <div class="tag-list">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Numpy</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">Seaborn</span>
+                <span class="skill-tag">Matplotlib</span>
+                <span class="skill-tag">Json</span>
+                <span class="skill-tag">Conda</span>
+              </div>
             <ul>
-               <li>Mapped video category IDs from CSV and JSON for cleaner insights.</li> 
-               <li>Cleaned, transformed, and visualized trends from 2021-2023.</li>
-               <li>Explored engagement patterns: views, likes, comments across categories.</li>
-               <li>Identified optimal title/description lengths for ~2.5M view range.</li>
-               <li>Compared monthly trends in Gaming vs. Entertainment content.</li>
-            </ul>
-        </div>
-
-        <div class="experience-card">
-            <h3><i class="fa-brands fa-youtube"></i> [Youtube Trending Video Analysis (US)] () </h3>
-            <div class="date"><a href="https://github.com/jomarisbanua/Youtube_Video_Trending_Analysis_In_The_US" target="_blank" class="org-link"><i class="fas fa-university"></i> University of California, Los Angeles (UCLA)</a> - June 2023</div>
-            <ul>
-                <li>GPA: 3.7/4.0</li>
-                <li>Dean's Honors List: Fall 2021, Winter 2022, Winter 2023</li>
-                <li>Roles: Data Scientist at <a href="https://ucladatares.com/" target="_blank">UCLA DataRes</a> and Vice President at <a href="https://linktr.ee/clubsamplingclub" target="_blank">UCLA's Club Sampling Club</a></li>
-                <li>Coursework: Machine Learning, Math Modeling, Python and Technologies for Data Science, Data Analysis and Regression, Statistical Programming with R, Algorithms, Computation and Optimization, SQL</li>
-            </ul>
-        </div>
-        
-        <div class="experience-card">
-            <h3><i class="fas fa-shopping-cart"></i> Fingerhut: Cart Abandonment Prediction (UCLA Capstone Project)</h3>
-            <ul>
-                <li>Led data preparation and cleaning for ML model to predict cart abandonment, achieving 85.7% accuracy with Light Gradient Boosting model</li>
-                <li>Provided detailed insights and recommendations to stakeholders on reducing cart abandonment and boosting revenue</li>
+                <li>Analyzed a dataset of trending YouTube videos in the US to identify patterns in viewership, engagement, and content strategy</li> 
+                <li>Used Python (Pandas, NumPy, Seaborn, Matplotlib) to clean and process structured JSON data, including video metadata such as title, tags, publish time, category, likes, and views</li>
+                <li>Visualized trends in audience engagement over time, identifying which upload times, categories, and title styles correlated with higher performance</li>
+                <li>Identified optimal title/description lengths for ~2.5M view range.</li>
+                <li>Explored creator behavior and patterns that contribute to virality, including frequency of uploads and title formatting</li>
             </ul>
         </div>
         
         <div class="experience-card">
-            <h3><i class="fas fa-wine-glass"></i> Winosaurus OCR Model (UCLA DataRes)</h3>
+            <h3><a href="https://github.com/jomarisbanua/Education-Attainment-in-UK" target="_blank" class="org-link"><i class="fa-solid fa-user-graduate"></i> Education Attainment in UK (Small vs Large Towns)</a></h3>
+            <div class="tag-list">
+                <span class="skill-tag">R</span>
+                <span class="skill-tag">tidyverse</span>
+                <span class="skill-tag">ggplot2</span>
+                <span class="skill-tag">dplyr</span>
+                <span class="skill-tag">pwr</span>
+                <span class="skill-tag">gtsummary</span>
+                <span class="skill-tag">kntr</span>
+                <span class="skill-tag">t-test</span>
+                <span class="skill-tag">linear regression</span>
+                <span class="skill-tag">Power Analysis</span>
+              </div>
             <ul>
-                <li>Built an OCR model to read wine labels for Winosaurus</li>
-                <li>Processed images to improve OCR accuracy and tuned the model to optimize performance</li>
-                <li>Created data visualizations to communicate results to stakeholders</li>
-            </ul>
-        </div>
-        
-        <div class="experience-card">
-            <h3><i class="fas fa-home"></i> HomeDescription Dashboard (UCLA DataRes)</h3>
-            <ul>
-                <li>Built Python Streamlit dashboard to provide real-time feedback on home descriptions</li>
-                <li>Analyzed 10,000+ listings to identify key factors for content improvement, resulting in 30% higher engagement rates</li>
-                <li>Developed data visualizations to communicate insights about effective home descriptions</li>
-            </ul>
-        </div>
-        
-        <div class="experience-card">
-            <h3><i class="fas fa-robot"></i> AI-Powered Weight Loss Chatbot Web App</h3>
-            <ul>
-                <li>Designed and built AI-driven weight loss chatbot using FastAPI, PostgreSQL, and React with LLM-based natural language processing</li>
-                <li>Implemented macro/calorie estimation, user profile tracking, and interactive visualizations for weight/nutrition trends</li>
-            </ul>
-        </div>
-        
-        <div class="experience-card">
-            <h3><i class="fas fa-sun"></i> PAYGo Solar Technology Project (iXperience)</h3>
-            <ul>
-                <li>Built a machine learning model to predict customers' next month's and six-month payments based on previous payment history</li>
-                <li>Performed PCA to reduce data dimensionality and improve model performance</li>
-                <li>Trained a linear regression model to predict customer payments with evaluation on held-out test data</li>
-            </ul>
-        </div>
-        
-        <div class="experience-card">
-            <h3><a href="https://github.com/mattohan567/Happiness_Score_Project" target="_blank" class="org-link"><i class="fas fa-smile"></i> Happiness Score Project (UCLA Math-156-Final-Project)</a></h3>
-            <ul>
-                <li>Implemented and compared multiple statistical modeling approaches to analyze happiness scores, including multivariate regression, KNN, and Principal Component Analysis (PCA)</li>
-                <li>Developed custom mean squares algorithm implementation and compared results against standard library functions</li>
-                <li>Collaborated with a team to analyze, clean, and model happiness score data across different countries and factors</li>
-                <li>Calculated Euclidean distances for K-nearest neighbors classification focused on social support as a response variable</li>
-                <li>Created comprehensive mathematical derivations in LaTeX for model documentation and analysis</li>
+                <li>Investigated how growing up in a small town vs. a large city influences educational outcomes using data from the UK's Longitudinal Education Outcomes (LEO) database</li> 
+                <li>Focused on high school (GCSE) and college graduation rates across different town sizes, controlling for income and demographic variables</li>
+                <li>Conducted data cleaning using dplyr and forcats, simplifying town size into two categories: Small vs. Large</li>
+                <li>Created custom visualizations using ggplot2 to compare distributions of graduation rates, town size, and income status</li>
+                <li>Identified a moderate association between income level and town size, suggesting socioeconomic context plays a key role</li>
+                <li>Performed statistical hypothesis testing including t-tests and chi-squared tests to assess differences and associations</li>
+                <li>Built a linear regression model to evaluate the predictive relationship between high school and college graduation rates </li>
+                <li>Conducted multiple power analyses using the pwr package to confirm the reliability and sensitivity of all statistical tests. </li>
+                <li>Found that college graduation rates differ significantly by town size, with small towns showing higher performance on average </li>
             </ul>
         </div>
     </section>
