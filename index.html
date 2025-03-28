@@ -1,662 +1,563 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2761
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="en">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>Matthew Ohanian - Data Scientist</title>\
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">\
-    <style>\
-        /* Modern CSS Reset */\
-        * \{\
-            margin: 0;\
-            padding: 0;\
-            box-sizing: border-box;\
-        \}\
-\
-        :root \{\
-            --primary-color: #4f46e5;\
-            --secondary-color: #818cf8;\
-            --text-color: #1f2937;\
-            --bg-color: #f8f9fa;\
-            --card-bg: #ffffff;\
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\
-            --transition: all 0.3s ease;\
-        \}\
-\
-        [data-theme="dark"] \{\
-            --primary-color: #818cf8;\
-            --secondary-color: #4f46e5;\
-            --text-color: #f3f4f6;\
-            --bg-color: #111827;\
-            --card-bg: #1f2937;\
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);\
-        \}\
-\
-        body \{\
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;\
-            line-height: 1.6;\
-            color: var(--text-color);\
-            background-color: var(--bg-color);\
-            transition: var(--transition);\
-        \}\
-\
-        /* Header Styles */\
-        .header \{\
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));\
-            color: white;\
-            padding: 6rem 2rem;\
-            text-align: center;\
-            position: relative;\
-            overflow: hidden;\
-        \}\
-\
-        .header::before \{\
-            content: '';\
-            position: absolute;\
-            top: 0;\
-            left: 0;\
-            right: 0;\
-            bottom: 0;\
-            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');\
-            opacity: 0.1;\
-            animation: backgroundMove 20s linear infinite;\
-        \}\
-\
-        @keyframes backgroundMove \{\
-            0% \{ background-position: 0 0; \}\
-            100% \{ background-position: 100% 100%; \}\
-        \}\
-\
-        .header h1 \{\
-            font-size: 3.5rem;\
-            margin-bottom: 1rem;\
-            animation: fadeInUp 1s ease;\
-        \}\
-\
-        .header p \{\
-            font-size: 1.4rem;\
-            opacity: 0.9;\
-            animation: fadeInUp 1s ease 0.2s;\
-            animation-fill-mode: both;\
-        \}\
-\
-        @keyframes fadeInUp \{\
-            from \{\
-                opacity: 0;\
-                transform: translateY(20px);\
-            \}\
-            to \{\
-                opacity: 1;\
-                transform: translateY(0);\
-            \}\
-        \}\
-\
-        /* Theme Toggle */\
-        .theme-toggle \{\
-            position: fixed;\
-            top: 20px;\
-            right: 20px;\
-            z-index: 1000;\
-            background: var(--card-bg);\
-            border: none;\
-            border-radius: 50%;\
-            width: 40px;\
-            height: 40px;\
-            cursor: pointer;\
-            display: flex;\
-            align-items: center;\
-            justify-content: center;\
-            box-shadow: var(--card-shadow);\
-            transition: var(--transition);\
-        \}\
-\
-        .theme-toggle:hover \{\
-            transform: scale(1.1);\
-        \}\
-\
-        /* Navigation */\
-        .nav \{\
-            background: var(--card-bg);\
-            padding: 1rem;\
-            box-shadow: var(--card-shadow);\
-            position: sticky;\
-            top: 0;\
-            z-index: 100;\
-            backdrop-filter: blur(10px);\
-            background: rgba(255, 255, 255, 0.8);\
-        \}\
-\
-        [data-theme="dark"] .nav \{\
-            background: rgba(31, 41, 55, 0.8);\
-        \}\
-\
-        .nav ul \{\
-            list-style: none;\
-            display: flex;\
-            justify-content: center;\
-            gap: 2rem;\
-        \}\
-\
-        .nav a \{\
-            text-decoration: none;\
-            color: var(--text-color);\
-            font-weight: 500;\
-            transition: var(--transition);\
-            position: relative;\
-        \}\
-\
-        .nav a::after \{\
-            content: '';\
-            position: absolute;\
-            bottom: -5px;\
-            left: 0;\
-            width: 0;\
-            height: 2px;\
-            background: var(--primary-color);\
-            transition: var(--transition);\
-        \}\
-\
-        .nav a:hover::after \{\
-            width: 100%;\
-        \}\
-\
-        /* Section Styles */\
-        .section \{\
-            max-width: 1200px;\
-            margin: 4rem auto;\
-            padding: 0 2rem;\
-            opacity: 0;\
-            transform: translateY(20px);\
-            transition: var(--transition);\
-        \}\
-\
-        .section.visible \{\
-            opacity: 1;\
-            transform: translateY(0);\
-        \}\
-\
-        .section h2 \{\
-            color: var(--primary-color);\
-            margin-bottom: 2rem;\
-            font-size: 2.5rem;\
-            position: relative;\
-            display: inline-block;\
-        \}\
-\
-        .section h2::after \{\
-            content: '';\
-            position: absolute;\
-            bottom: -10px;\
-            left: 0;\
-            width: 50px;\
-            height: 3px;\
-            background: var(--primary-color);\
-            border-radius: 2px;\
-        \}\
-\
-        /* Experience Cards */\
-        .experience-card \{\
-            background: var(--card-bg);\
-            border-radius: 12px;\
-            padding: 2rem;\
-            margin-bottom: 2rem;\
-            box-shadow: var(--card-shadow);\
-            transition: var(--transition);\
-            border: 1px solid rgba(255, 255, 255, 0.1);\
-        \}\
-\
-        .experience-card:hover \{\
-            transform: translateY(-5px);\
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\
-        \}\
-\
-        .experience-card h3 \{\
-            color: var(--primary-color);\
-            margin-bottom: 0.5rem;\
-            font-size: 1.5rem;\
-        \}\
-\
-        .experience-card .date \{\
-            color: var(--secondary-color);\
-            font-size: 0.9rem;\
-            margin-bottom: 1rem;\
-        \}\
-\
-        /* Skills Grid */\
-        .skills-grid \{\
-            display: grid;\
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\
-            gap: 2rem;\
-        \}\
-\
-        .skill-category \{\
-            background: var(--card-bg);\
-            padding: 2rem;\
-            border-radius: 12px;\
-            box-shadow: var(--card-shadow);\
-            transition: var(--transition);\
-            border: 1px solid rgba(255, 255, 255, 0.1);\
-        \}\
-\
-        .skill-category:hover \{\
-            transform: translateY(-5px);\
-        \}\
-\
-        .skill-category h3 \{\
-            color: var(--primary-color);\
-            margin-bottom: 1.5rem;\
-            font-size: 1.5rem;\
-            display: flex;\
-            align-items: center;\
-            gap: 0.5rem;\
-        \}\
-\
-        .skill-category ul \{\
-            list-style: none;\
-        \}\
-\
-        .skill-category li \{\
-            margin-bottom: 0.8rem;\
-            display: flex;\
-            align-items: center;\
-            gap: 0.5rem;\
-        \}\
-\
-        .skill-category li::before \{\
-            content: '\uc0\u9657 ';\
-            color: var(--primary-color);\
-        \}\
-\
-        /* Contact Links */\
-        .contact-links \{\
-            display: flex;\
-            justify-content: center;\
-            gap: 2rem;\
-            margin-top: 2rem;\
-            animation: fadeInUp 1s ease 0.4s;\
-            animation-fill-mode: both;\
-        \}\
-\
-        .contact-links a \{\
-            color: white;\
-            text-decoration: none;\
-            opacity: 0.9;\
-            transition: var(--transition);\
-            display: flex;\
-            align-items: center;\
-            gap: 0.5rem;\
-            padding: 0.5rem 1rem;\
-            border-radius: 20px;\
-            background: rgba(255, 255, 255, 0.1);\
-        \}\
-\
-        .contact-links a:hover \{\
-            opacity: 1;\
-            transform: translateY(-2px);\
-            background: rgba(255, 255, 255, 0.2);\
-        \}\
-\
-        /* Responsive Design */\
-        @media (max-width: 768px) \{\
-            .nav ul \{\
-                flex-direction: column;\
-                align-items: center;\
-                gap: 1rem;\
-            \}\
-\
-            .header \{\
-                padding: 4rem 1rem;\
-            \}\
-\
-            .header h1 \{\
-                font-size: 2.5rem;\
-            \}\
-\
-            .contact-links \{\
-                flex-direction: column;\
-                align-items: center;\
-            \}\
-        \}\
-\
-        /* Add styles for organization links */\
-        .org-link \{\
-            color: inherit;\
-            text-decoration: none;\
-            position: relative;\
-            transition: var(--transition);\
-        \}\
-\
-        .org-link::after \{\
-            content: '';\
-            position: absolute;\
-            bottom: -2px;\
-            left: 0;\
-            width: 0;\
-            height: 1px;\
-            background: var(--primary-color);\
-            transition: var(--transition);\
-        \}\
-\
-        .org-link:hover \{\
-            color: var(--primary-color);\
-        \}\
-\
-        .org-link:hover::after \{\
-            width: 100%;\
-        \}\
-\
-        .org-link:hover i \{\
-            transform: translateX(3px);\
-        \}\
-\
-        .experience-card h3 a i \{\
-            margin-left: 5px;\
-            font-size: 0.8em;\
-            transition: var(--transition);\
-        \}\
-    </style>\
-</head>\
-<body>\
-    <button class="theme-toggle" id="theme-toggle">\
-        <i class="fas fa-moon"></i>\
-    </button>\
-\
-    <header class="header">\
-        <h1>Matthew Ohanian</h1>\
-        <p>Full-stack Data Scientist</p>\
-        <div class="contact-links">\
-            <a href="mailto:matt.ohan@gmail.com"><i class="fas fa-envelope"></i> Email</a>\
-            <a href="https://linkedin.com/in/matthewohanian"><i class="fab fa-linkedin"></i> LinkedIn</a>\
-            <a href="https://github.com/mattohan567"><i class="fab fa-github"></i> GitHub</a>\
-            <a href="resume/resume_matt.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Resume PDF</a>\
-            <span><i class="fas fa-map-marker-alt"></i> San Francisco, CA</span>\
-        </div>\
-    </header>\
-\
-    <nav class="nav">\
-        <ul>\
-            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>\
-            <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>\
-            <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>\
-            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>\
-            <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>\
-            <li><a href="#volunteer"><i class="fas fa-hands-helping"></i> Volunteer</a></li>\
-        </ul>\
-    </nav>\
-\
-    <section id="about" class="section">\
-        <h2>About Me</h2>\
-        <p>Hi, I'm Matthew, but feel free to call me Matt! I'm a passionate data scientist who loves turning complex data into meaningful insights. With experience across healthcare, e-commerce, and biotech, I enjoy building ML models and data pipelines that solve real-world problems. When I'm not coding or analyzing data, you might find me volunteering in my community or exploring San Francisco. I'm always excited to connect with fellow data enthusiasts and collaborate on interesting projects!</p>\
-    </section>\
-\
-    <section id="experience" class="section">\
-        <h2>Experience</h2>\
-        <div class="experience-card">\
-            <h3><a href="https://www.qventus.com/" target="_blank" class="org-link"><i class="fas fa-hospital"></i> Data Scientist, Intern - Qventus</a></h3>\
-            <div class="date">February 2025 - Present</div>\
-            <ul>\
-                <li>Developing machine learning models to predict case response status and optimize healthcare operations using AWS SageMaker</li>\
-                <li>Building risk prediction models for case cancellations using healthcare datasets</li>\
-                <li>Implementing data pipelines using Snowflake and AWS (S3, Lambda) to process and analyze healthcare data</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><a href="https://www.raydiant.com/" target="_blank" class="org-link"><i class="fas fa-desktop"></i> Data Scientist, Intern - Raydiant</a></h3>\
-            <div class="date">October 2024 - February 2025</div>\
-            <ul>\
-                <li>Developed and optimized ETL pipelines using AWS (S3, Glue, Lambda, Athena) to process customer data, reducing processing time by 30% for 3M+ records</li>\
-                <li>Built customer churn prediction model using Python and scikit-learn, achieving 85% accuracy and identifying key factors driving customer retention</li>\
-                <li>Created interactive executive dashboards using Python and Tableau, providing real-time analytics for cross-functional teams</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><a href="https://www.axaitech.co.za/" target="_blank" class="org-link"><i class="fas fa-dna"></i> Data Scientist, Intern - Axaitech</a></h3>\
-            <div class="date">July 2022 - August 2022</div>\
-            <ul>\
-                <li>Collaborated with team to optimize ML model, reducing gene expression analysis from 58,000 to 16 genes, leading to 75% cost reduction and 60% faster processing</li>\
-                <li>Built cancer classification model with 95% accuracy using minimal gene expressions, enabling faster diagnosis and reducing false positives by 40%</li>\
-                <li>Conducted data cleaning, visualization, and feature selection using Python, improving model performance by 25%</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><a href="https://ucladatares.com/" target="_blank" class="org-link"><i class="fas fa-chart-line"></i> Data Scientist, Consultant - DataRes</a></h3>\
-            <div class="date">October 2022 - May 2023</div>\
-            <ul>\
-                <li>Built Python Streamlit dashboard to provide real-time feedback on home descriptions, analyzing 10,000+ listings to identify key factors for content improvement, resulting in 30% higher engagement rates</li>\
-                <li>Developed and tuned OCR model for reading wine labels, processing images for accuracy, and creating visualizations to communicate results to stakeholders</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><a href="https://linktr.ee/clubsamplingclub" target="_blank" class="org-link"><i class="fas fa-users"></i> Vice President - Club Sampling Club, UCLA</a></h3>\
-            <div class="date">September 2022 - June 2023</div>\
-            <ul>\
-                <li>Led a team to organize and execute events with various campus organizations</li>\
-                <li>Managed the club's budget and secured sponsorships to cover event costs</li>\
-                <li>Grew the club's membership to over 800 students</li>\
-                <li>Raised over $10,000 for the club through fundraising events</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><i class="fas fa-chalkboard-teacher"></i> Math Instructor - Matt's Tutoring Services</h3>\
-            <div class="date">September 2021 - Present</div>\
-            <ul>\
-                <li>Tutored 25+ students in subjects including Algebra, Geometry, Calculus, Linear Algebra, Statistics, and Data Science, improving grades by average of 20-30%</li>\
-                <li>Managed and delivered tutoring sessions both in-person and virtually via Zoom, maintaining high student engagement</li>\
-                <li>Coordinated schedules around students' commitments including sports and extracurricular activities</li>\
-            </ul>\
-        </div>\
-    </section>\
-\
-    <section id="projects" class="section">\
-        <h2>Projects</h2>\
-        <div class="experience-card">\
-            <h3><i class="fas fa-trophy"></i> Kaggle Competition: Advanced Machine Learning 2025 (USF Course Project)</h3>\
-            <ul>\
-                <li>Secured 5th place out of 90 students in Advanced ML competition using Matrix Factorization (Funk SVD) and Neural Networks for predicting childhood growth curves</li>\
-                <li>Achieved 92% accuracy through advanced feature engineering, hyperparameter optimization, and model stacking techniques</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><i class="fas fa-shopping-cart"></i> Fingerhut: Cart Abandonment Prediction (UCLA Capstone Project)</h3>\
-            <ul>\
-                <li>Led data preparation and cleaning for ML model to predict cart abandonment, achieving 85.7% accuracy with Light Gradient Boosting model</li>\
-                <li>Provided detailed insights and recommendations to stakeholders on reducing cart abandonment and boosting revenue</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><i class="fas fa-wine-glass"></i> Winosaurus OCR Model (UCLA DataRes)</h3>\
-            <ul>\
-                <li>Built an OCR model to read wine labels for Winosaurus</li>\
-                <li>Processed images to improve OCR accuracy and tuned the model to optimize performance</li>\
-                <li>Created data visualizations to communicate results to stakeholders</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><i class="fas fa-home"></i> HomeDescription Dashboard (UCLA DataRes)</h3>\
-            <ul>\
-                <li>Built Python Streamlit dashboard to provide real-time feedback on home descriptions</li>\
-                <li>Analyzed 10,000+ listings to identify key factors for content improvement, resulting in 30% higher engagement rates</li>\
-                <li>Developed data visualizations to communicate insights about effective home descriptions</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><i class="fas fa-robot"></i> AI-Powered Weight Loss Chatbot Web App</h3>\
-            <ul>\
-                <li>Designed and built AI-driven weight loss chatbot using FastAPI, PostgreSQL, and React with LLM-based natural language processing</li>\
-                <li>Implemented macro/calorie estimation, user profile tracking, and interactive visualizations for weight/nutrition trends</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><i class="fas fa-sun"></i> PAYGo Solar Technology Project (iXperience)</h3>\
-            <ul>\
-                <li>Built a machine learning model to predict customers' next month's and six-month payments based on previous payment history</li>\
-                <li>Performed PCA to reduce data dimensionality and improve model performance</li>\
-                <li>Trained a linear regression model to predict customer payments with evaluation on held-out test data</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><a href="https://github.com/mattohan567/Happiness_Score_Project" target="_blank" class="org-link"><i class="fas fa-smile"></i> Happiness Score Project (UCLA Math-156-Final-Project)</a></h3>\
-            <ul>\
-                <li>Implemented and compared multiple statistical modeling approaches to analyze happiness scores, including multivariate regression, KNN, and Principal Component Analysis (PCA)</li>\
-                <li>Developed custom mean squares algorithm implementation and compared results against standard library functions</li>\
-                <li>Collaborated with a team to analyze, clean, and model happiness score data across different countries and factors</li>\
-                <li>Calculated Euclidean distances for K-nearest neighbors classification focused on social support as a response variable</li>\
-                <li>Created comprehensive mathematical derivations in LaTeX for model documentation and analysis</li>\
-            </ul>\
-        </div>\
-    </section>\
-\
-    <section id="education" class="section">\
-        <h2>Education</h2>\
-        <div class="experience-card">\
-            <h3><i class="fas fa-graduation-cap"></i> Master's of Science in Data Science (MSDS)</h3>\
-            <div class="date"><a href="https://www.usfca.edu/arts-sciences/programs/graduate/data-science" target="_blank" class="org-link"><i class="fas fa-university"></i> University of San Francisco</a> - Expected July 2025</div>\
-            <p>Coursework: Linear Regression, Relational Databases, Computation in Python, Statistics, Data Structures and Algorithms, Distributed Computing, Machine Learning, Deep Learning, Experimental Design, Distributed Data Systems, Data Engineering</p>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><i class="fas fa-graduation-cap"></i> Bachelor of Science in Data Theory</h3>\
-            <div class="date"><a href="https://datatheory.ucla.edu/" target="_blank" class="org-link"><i class="fas fa-university"></i> University of California, Los Angeles (UCLA)</a> - June 2023</div>\
-            <ul>\
-                <li>GPA: 3.7/4.0</li>\
-                <li>Dean's Honors List: Fall 2021, Winter 2022, Winter 2023</li>\
-                <li>Roles: Data Scientist at <a href="https://ucladatares.com/" target="_blank">UCLA DataRes</a> and Vice President at <a href="https://linktr.ee/clubsamplingclub" target="_blank">UCLA's Club Sampling Club</a></li>\
-                <li>Coursework: Machine Learning, Math Modeling, Python and Technologies for Data Science, Data Analysis and Regression, Statistical Programming with R, Algorithms, Computation and Optimization, SQL</li>\
-            </ul>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><i class="fas fa-graduation-cap"></i> Data Science Certificate</h3>\
-            <div class="date"><a href="https://www.ixperience.co/" target="_blank" class="org-link"><i class="fas fa-globe-europe"></i> iXperience</a> - Lisbon, Portugal - August 2022</div>\
-            <p>6-week educational experience studying and interning in Data Science, focusing on Python programming, data preprocessing and cleaning methods, data analysis and feature engineering, data visualization, and machine learning techniques</p>\
-        </div>\
-        \
-        <div class="experience-card">\
-            <h3><i class="fas fa-graduation-cap"></i> Associate for Science in Transfer: Mathematics</h3>\
-            <div class="date"><a href="https://www.glendale.edu/" target="_blank" class="org-link"><i class="fas fa-university"></i> Glendale Community College</a> - June 2021</div>\
-            <ul>\
-                <li>GPA: 3.9/4.0</li>\
-                <li>Dean's Honor Roll: Fall 2019, Spring 2020, Fall 2020, Spring 2021</li>\
-                <li>Parker Mathematics Scholarship Recipient</li>\
-            </ul>\
-        </div>\
-    </section>\
-\
-    <section id="volunteer" class="section">\
-        <h2>Volunteer Experience</h2>\
-        <div class="experience-card">\
-            <h3><i class="fas fa-hands-helping"></i> Community Service</h3>\
-            <ul>\
-                <li><i class="fas fa-broom"></i> Lower Nob Hill Weekly Cleanup, San Francisco, CA (January 2024-Present): Participate in weekly Sunday community cleanup events to maintain and beautify the neighborhood. <a href="https://www.mobilize.us/togethersf/event/409574/" target="_blank">Event Link</a></li>\
-                <li>Project Paper Bag, Los Angeles, CA (2019-2023): Prepared and delivered meals for the homeless</li>\
-                <li>Olive Crest, Riverside, CA (2021-2022): Assisted in organizing fundraisers to support children in foster care</li>\
-                <li>ACEing Autism, Burbank, CA (2017-2018): Helped teach children with autism how to play tennis</li>\
-            </ul>\
-        </div>\
-    </section>\
-\
-    <section id="skills" class="section">\
-        <h2>Skills</h2>\
-        <div class="skills-grid">\
-            <div class="skill-category">\
-                <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>\
-                <ul>\
-                    <li>AWS (EC2, Lambda, S3, Glue, Redshift, Athena, SageMaker, ECS, ECR)</li>\
-                    <li>Snowflake</li>\
-                    <li>Postgres, MongoDB</li>\
-                </ul>\
-            </div>\
-            <div class="skill-category">\
-                <h3><i class="fas fa-code"></i> Programming</h3>\
-                <ul>\
-                    <li>Python (NumPy, Pandas, Seaborn, Matplotlib, Scikit-Learn, PyTorch, FastAPI, Flask)</li>\
-                    <li>R, SQL, Matlab</li>\
-                    <li>Git</li>\
-                </ul>\
-            </div>\
-            <div class="skill-category">\
-                <h3><i class="fas fa-brain"></i> ML & AI</h3>\
-                <ul>\
-                    <li>Deep Learning, NLP, Computer Vision</li>\
-                    <li>LLMs, Feature Engineering</li>\
-                    <li>Predictive Modeling, A/B Testing</li>\
-                    <li>Time Series Analysis</li>\
-                    <li>Ensemble Methods, Gradient Boosting, Random Forests</li>\
-                    <li>Neural Networks</li>\
-                </ul>\
-            </div>\
-            <div class="skill-category">\
-                <h3><i class="fas fa-database"></i> Data Engineering</h3>\
-                <ul>\
-                    <li>ETL/ELT Pipelines</li>\
-                    <li>Data Warehousing, Data Modeling</li>\
-                    <li>Data Quality, MLOps</li>\
-                    <li>Model Deployment & Monitoring</li>\
-                    <li>Data Governance</li>\
-                    <li>MLFlow</li>\
-                </ul>\
-            </div>\
-            <div class="skill-category">\
-                <h3><i class="fas fa-server"></i> Big Data</h3>\
-                <ul>\
-                    <li>Apache Spark</li>\
-                    <li>Distributed Computing</li>\
-                    <li>Parallel Processing</li>\
-                    <li>Real-time Analytics</li>\
-                    <li>Stream Processing</li>\
-                </ul>\
-            </div>\
-            <div class="skill-category">\
-                <h3><i class="fas fa-chart-bar"></i> Visualization</h3>\
-                <ul>\
-                    <li>Tableau</li>\
-                    <li>Plotly</li>\
-                    <li>Interactive Dashboards</li>\
-                    <li>Storytelling with Data</li>\
-                </ul>\
-            </div>\
-        </div>\
-    </section>\
-\
-    <script>\
-        // Theme toggle functionality\
-        const themeToggle = document.getElementById('theme-toggle');\
-        const icon = themeToggle.querySelector('i');\
-        \
-        themeToggle.addEventListener('click', () => \{\
-            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';\
-            icon.className = document.body.dataset.theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';\
-        \});\
-\
-        // Intersection Observer for fade-in animations\
-        const sections = document.querySelectorAll('.section');\
-        const observer = new IntersectionObserver((entries) => \{\
-            entries.forEach(entry => \{\
-                if (entry.isIntersecting) \{\
-                    entry.target.classList.add('visible');\
-                \}\
-            \});\
-        \}, \{ threshold: 0.1 \});\
-\
-        sections.forEach(section => observer.observe(section));\
-    </script>\
-</body>\
-</html> }
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
+    p.p5 {margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000}
+    p.p6 {margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000}
+    p.p7 {margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
+    li.li1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    li.li4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 11.0px 'Helvetica Neue'; font-kerning: none; color: rgba(0, 0, 0, 0.85); background-color: #b3b3b3; -webkit-text-stroke: 0px rgba(0, 0, 0, 0.85)}
+    span.s3 {font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
+    span.s4 {text-decoration: underline ; font-kerning: none; -webkit-text-stroke: 0px #0000e9}
+    span.s5 {text-decoration: underline ; font-kerning: none}
+    span.s6 {font: 14.0px Times; text-decoration: underline ; font-kerning: none}
+    span.s7 {text-decoration: underline ; font-kerning: none; color: #0000e9; -webkit-text-stroke: 0px #0000e9}
+    ul.ul1 {list-style-type: disc}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">{\rtf1\ansi\ansicpg1252\cocoartf2761 \cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;} {\colortbl;\red255\green255\blue255;} {\*\expandedcolortbl;;} \margl1440\margr1440\vieww11520\viewh8400\viewkind0 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0 \f0\fs24 \cf0 \ \ \ \ \ \ \ \ \ \ </span><span class="s2">\ \ </span><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Maris Banua</b></span></h1>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p3"><span class="s1">Data Scientist | Machine Learning Engineer</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p4"><span class="s3">\ <a href="mailto:jombanua19@gmail.com"><span class="s4">Email</span></a>\ <a href="https://linkedin.com/in/jomaris-banua"><span class="s4">LinkedIn</span></a>\ <a href="https://github.com/jomarisbanua"><span class="s4">GitHub</span></a>\ <a href="file:///Users/maris/Documents/Portfolio/PersonalWebsite/resume/resume_maris.pdf"><span class="s4">Resume PDF</span></a>\ San Jose, CA\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li4"><span class="s5">About</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li4"><span class="s5">Projects</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li4"><span class="s5">Experience</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li4"><span class="s5">Education</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li4"><span class="s5">Skills</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li4"><span class="s5">Volunteer</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>About Me</b></span></h2>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p3"><span class="s1">Hi, I'm Jomaris, but feel free to call me Maris! I used to break down molecules—now I break down data. I'm passionate about data science, machine learning, LLMs, and generative AI. With a background in chemical engineering and research in sensors and wearables, I’m now deep into a second MS in Statistics at CSU East Bay. Lately, I’ve been building ML models for wildfire prediction and experimenting with AI agents. When I’m not geeking out over data, you’ll find me cooking or obsessing over how to turn my parsley patch into a full-blown plantation.<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Projects</b></span></h2>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Kaggle Competition: Advanced Machine Learning 2025 (USF Course Project)</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Secured 5th place out of 90 students in Advanced ML competition using Matrix Factorization (Funk SVD) and Neural Networks for predicting childhood growth curves</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Achieved 92% accuracy through advanced feature engineering, hyperparameter optimization, and model stacking techniques</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Fingerhut: Cart Abandonment Prediction (UCLA Capstone Project)</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Led data preparation and cleaning for ML model to predict cart abandonment, achieving 85.7% accuracy with Light Gradient Boosting model</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Provided detailed insights and recommendations to stakeholders on reducing cart abandonment and boosting revenue</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Winosaurus OCR Model (UCLA DataRes)</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Built an OCR model to read wine labels for Winosaurus</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Processed images to improve OCR accuracy and tuned the model to optimize performance</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Created data visualizations to communicate results to stakeholders</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>HomeDescription Dashboard (UCLA DataRes)</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Built Python Streamlit dashboard to provide real-time feedback on home descriptions</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Analyzed 10,000+ listings to identify key factors for content improvement, resulting in 30% higher engagement rates</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Developed data visualizations to communicate insights about effective home descriptions</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>AI-Powered Weight Loss Chatbot Web App</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Designed and built AI-driven weight loss chatbot using FastAPI, PostgreSQL, and React with LLM-based natural language processing</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Implemented macro/calorie estimation, user profile tracking, and interactive visualizations for weight/nutrition trends</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>PAYGo Solar Technology Project (iXperience)</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Built a machine learning model to predict customers' next month's and six-month payments based on previous payment history</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Performed PCA to reduce data dimensionality and improve model performance</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Trained a linear regression model to predict customer payments with evaluation on held-out test data</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9"><span class="s5"><a href="https://github.com/mattohan567/Happiness_Score_Project"><b>Happiness Score Project (UCLA Math-156-Final-Project)</b><span class="s6"><b></b></span></a></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Implemented and compared multiple statistical modeling approaches to analyze happiness scores, including multivariate regression, KNN, and Principal Component Analysis (PCA)</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Developed custom mean squares algorithm implementation and compared results against standard library functions</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Collaborated with a team to analyze, clean, and model happiness score data across different countries and factors</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Calculated Euclidean distances for K-nearest neighbors classification focused on social support as a response variable</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Created comprehensive mathematical derivations in LaTeX for model documentation and analysis</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p5"><span class="s1"><b>Experience</b></span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p7"><span class="s5"><a href="https://www.qventus.com/"><b>Data Scientist, Intern - Qventus</b><span class="s6"><b></b></span></a></span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">February 2025 - Present</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Developing machine learning models to predict case response status and optimize healthcare operations using AWS SageMaker</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Building risk prediction models for case cancellations using healthcare datasets</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Implementing data pipelines using Snowflake and AWS (S3, Lambda) to process and analyze healthcare data</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p7"><span class="s5"><a href="https://www.raydiant.com/"><b>Data Scientist, Intern - Raydiant</b><span class="s6"><b></b></span></a></span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">October 2024 - February 2025</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Developed and optimized ETL pipelines using AWS (S3, Glue, Lambda, Athena) to process customer data, reducing processing time by 30% for 3M+ records</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Built customer churn prediction model using Python and scikit-learn, achieving 85% accuracy and identifying key factors driving customer retention</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Created interactive executive dashboards using Python and Tableau, providing real-time analytics for cross-functional teams</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p7"><span class="s5"><a href="https://www.axaitech.co.za/"><b>Data Scientist, Intern - Axaitech</b><span class="s6"><b></b></span></a></span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">July 2022 - August 2022</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Collaborated with team to optimize ML model, reducing gene expression analysis from 58,000 to 16 genes, leading to 75% cost reduction and 60% faster processing</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Built cancer classification model with 95% accuracy using minimal gene expressions, enabling faster diagnosis and reducing false positives by 40%</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Conducted data cleaning, visualization, and feature selection using Python, improving model performance by 25%</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p7"><span class="s5"><a href="https://ucladatares.com/"><b>Data Scientist, Consultant - DataRes</b><span class="s6"><b></b></span></a></span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">October 2022 - May 2023</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Built Python Streamlit dashboard to provide real-time feedback on home descriptions, analyzing 10,000+ listings to identify key factors for content improvement, resulting in 30% higher engagement rates</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Developed and tuned OCR model for reading wine labels, processing images for accuracy, and creating visualizations to communicate results to stakeholders</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p7"><span class="s5"><a href="https://linktr.ee/clubsamplingclub"><b>Vice President - Club Sampling Club, UCLA</b><span class="s6"><b></b></span></a></span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">September 2022 - June 2023</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Led a team to organize and execute events with various campus organizations</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Managed the club's budget and secured sponsorships to cover event costs</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Grew the club's membership to over 800 students</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Raised over $10,000 for the club through fundraising events</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p6"><span class="s1"><b>Math Instructor - Matt's Tutoring Services</b></span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">September 2021 - Present</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Tutored 25+ students in subjects including Algebra, Geometry, Calculus, Linear Algebra, Statistics, and Data Science, improving grades by average of 20-30%</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Managed and delivered tutoring sessions both in-person and virtually via Zoom, maintaining high student engagement</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Coordinated schedules around students' commitments including sports and extracurricular activities</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Education</b></span></h2>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Master's of Science in Data Science (MSDS)</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p4"><span class="s5"><a href="https://www.usfca.edu/arts-sciences/programs/graduate/data-science">University of San Francisco</a></span><span class="s3"> - Expected July 2025</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p3"><span class="s1">Coursework: Linear Regression, Relational Databases, Computation in Python, Statistics, Data Structures and Algorithms, Distributed Computing, Machine Learning, Deep Learning, Experimental Design, Distributed Data Systems, Data Engineering</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Bachelor of Science in Data Theory</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p4"><span class="s5"><a href="https://datatheory.ucla.edu/">University of California, Los Angeles (UCLA)</a></span><span class="s3"> - June 2023</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">GPA: 3.7/4.0</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Dean's Honors List: Fall 2021, Winter 2022, Winter 2023</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Roles: Data Scientist at <a href="https://ucladatares.com/"><span class="s7">UCLA DataRes</span></a> and Vice President at <a href="https://linktr.ee/clubsamplingclub"><span class="s7">UCLA's Club Sampling Club</span></a></span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Coursework: Machine Learning, Math Modeling, Python and Technologies for Data Science, Data Analysis and Regression, Statistical Programming with R, Algorithms, Computation and Optimization, SQL</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Data Science Certificate</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s7"><a href="https://www.ixperience.co/">iXperience</a></span><span class="s1"> - Lisbon, Portugal - August 2022</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p3"><span class="s1">6-week educational experience studying and interning in Data Science, focusing on Python programming, data preprocessing and cleaning methods, data analysis and feature engineering, data visualization, and machine learning techniques</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Associate for Science in Transfer: Mathematics</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p4"><span class="s5"><a href="https://www.glendale.edu/">Glendale Community College</a></span><span class="s3"> - June 2021</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">GPA: 3.9/4.0</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Dean's Honor Roll: Fall 2019, Spring 2020, Fall 2020, Spring 2021</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Parker Mathematics Scholarship Recipient</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Volunteer Experience</b></span></h2>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Community Service</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Lower Nob Hill Weekly Cleanup, San Francisco, CA (January 2024-Present): Participate in weekly Sunday community cleanup events to maintain and beautify the neighborhood. <a href="https://www.mobilize.us/togethersf/event/409574/"><span class="s7">Event Link</span></a></span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Project Paper Bag, Los Angeles, CA (2019-2023): Prepared and delivered meals for the homeless</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Olive Crest, Riverside, CA (2021-2022): Assisted in organizing fundraisers to support children in foster care</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">ACEing Autism, Burbank, CA (2017-2018): Helped teach children with autism how to play tennis</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Skills</b></span></h2>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Cloud &amp; Infrastructure</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">AWS (EC2, Lambda, S3, Glue, Redshift, Athena, SageMaker, ECS, ECR)</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Snowflake</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Postgres, MongoDB</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Programming</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Python (NumPy, Pandas, Seaborn, Matplotlib, Scikit-Learn, PyTorch, FastAPI, Flask)</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">R, SQL, Matlab</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Git</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>ML &amp; AI</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Deep Learning, NLP, Computer Vision</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">LLMs, Feature Engineering</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Predictive Modeling, A/B Testing</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Time Series Analysis</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Ensemble Methods, Gradient Boosting, Random Forests</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Neural Networks</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Data Engineering</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">ETL/ELT Pipelines</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Data Warehousing, Data Modeling</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Data Quality, MLOps</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Model Deployment &amp; Monitoring</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Data Governance</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">MLFlow</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Big Data</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Apache Spark</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Distributed Computing</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Parallel Processing</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Real-time Analytics</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Stream Processing</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Visualization</b></span></h3>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Tableau</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Plotly</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Interactive Dashboards</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<ul class="ul1">
+  <li class="li1"><span class="s1">Storytelling with Data</span></li>
+</ul>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\</span></p>
+<p class="p1"><span class="s1">\ \ \ \ }</span></p>
+</body>
+</html>
