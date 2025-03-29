@@ -226,7 +226,7 @@
             display: inline-block;
             color: var(--secondary-color);
             font-family: 'Inter', 'Segoe UI', sans-serif;
-            font-size: 0.70rem;
+            font-size: 0.85rem;
             padding: 1px 10px;
             border-radius: 5px;
             margin: 3px 5px 1px 0px;
@@ -392,14 +392,15 @@
     </button>
 
     <header class="header">
-        <h1>Maris Banua</h1>
-        <p>Data Scientist | Machine Learning</p>
+        <img src="https://capsule-render.vercel.app/api?type=blur&height=300&color=gradient&text=Maris%20Banua" />
+        <div align=”center”> 
+        <p>Data Scientist | AI & ML Engineer | Chemical Engineer</p>
         <div class="contact-links">
             <a href="mailto:jombanua19@gmail.com"><i class="fas fa-envelope"></i> Email</a>
             <a href="https://linkedin.com/in/jomaris-banua"><i class="fab fa-linkedin"></i> LinkedIn</a>
             <a href="https://github.com/jomarisbanua"><i class="fab fa-github"></i> GitHub</a>
             <a href="resume/resume_maris.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Resume PDF</a>
-            <span><i class="fas fa-map-marker-alt"></i> San Jose, CA</span>
+            <a href="" target="_blank"><i class="fas fa-map-marker-alt"></i> San Jose, CA</a>
         </div>
     </header>
 
@@ -416,7 +417,8 @@
 
     <section id="about" class="section">
         <h2>About Me</h2>
-        <p>Hi, I'm Jomairs, but feel free to call me Maris! I used to break down molecules—now I break down data. I'm passionate about data science, machine learning, LLMs, and generative AI. With a background in chemical engineering and research in sensors and wearables, I'm now deep into a second MS in Statistics at CSU East Bay.
+        <p>Hi, I'm Jomaris, but feel free to call me Maris! <img src="https://emojis.slackmojis.com/emojis/images/1536351075/4594/blob-wave.gif" width="25"/> </p>
+        <p>I used to break down molecules—now I break down data. I'm passionate about data science, machine learning, LLMs, and generative AI. With a background in chemical engineering and research in sensors and wearables, I'm now deep into a second MS in Statistics at CSU East Bay.
 
 Lately, I've been building ML models for wildfire prediction and experimenting with AI agents. When I'm not geeking out over data, you'll find me cooking or obsessing over how to turn my parsley patch into a full-blown plantation. 
 </p>
@@ -471,105 +473,137 @@ Lately, I've been building ML models for wildfire prediction and experimenting w
                 <li>Found that college graduation rates differ significantly by town size, with small towns showing higher performance on average </li>
             </ul>
         </div>
+
+        <div class="experience-card">
+            <h3><a href="" target="_blank" class="org-link"><i class="fa-brands fa-twitter"></i> Twitter Sentiment Prediction</a></h3>
+            <div class="tag-list">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">Numpy</span>
+                <span class="skill-tag">Seaborn</span>
+                <span class="skill-tag">Matplotlib</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">Keras</span>
+                <span class="skill-tag">TF-IDF</span>
+                <span class="skill-tag">CountVectorizer</span>
+                <span class="skill-tag">WordCloud</span>
+                <span class="skill-tag">NLP</span>
+                <span class="skill-tag">Sentiment Analysis</span>
+              </div>
+            <ul>
+                <li>Built a real-time sentiment analysis pipeline using deep learning to classify tweets as positive, negative, or neutral.</li> 
+                <li>Performed advanced text preprocessing (decontraction, stopword removal, regex cleaning) to prepare tweets for modeling.</li>
+                <li>Extracted features using TF-IDF and CountVectorizer, enabling models to capture meaningful language patterns.</li>
+                <li>Trained a multi-class neural network using Keras, achieving ~95% accuracy on the validation set.</li>
+                <li>Visualized key insights using word clouds, countplots, and tracked model performance over 10 epochs with accuracy/loss curves.</li>
+            </ul>
+        </div>
+
+        <div class="experience-card">
+            <h3><a href="" target="_blank" class="org-link"><i class="fas fa-robot"></i> Grading with AI: Automating Essay Scoring Using Transformers</a></h3>
+            <div class="tag-list">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">Scikit-learn</span>
+                <span class="skill-tag">XGBoost</span>
+                <span class="skill-tag">Transformers</span>
+                <span class="skill-tag">DistilBERT</span>
+                <span class="skill-tag">NLP</span>
+                <span class="skill-tag">Feature Engineering</span>
+                <span class="skill-tag">Matplotlib</span>
+                <span class="skill-tag">Seaborn</span>
+              </div>
+              
+            <ul>
+                <li>Built an automated essay scoring system using pre-trained transformer models (DistilBERT) to evaluate textual quality and predict human-assigned scores.</li> 
+                <li>Preprocessed over 12,000 essays including cleaning, lemmatization, and removal of outliers to ensure model robustness.</li>
+                <li>Engineered custom features (text length, lexical diversity, readability) to complement transformer-based embeddings.</li>
+                <li>Trained and fine-tuned regression models (Linear Regression, Ridge, XGBoost) achieving high R² performance across multiple essay prompts.</li>
+                <li>Developed a modular and scalable pipeline for real-world education applications, reducing manual grading workload while maintaining fairness and accuracy.</li>
+            </ul>
+        </div>
     </section>
 
 
 <section id="experience" class="section">
         <h2>Experience</h2>
         <div class="experience-card">
-            <h3><a href="https://www.qventus.com/" target="_blank" class="org-link"><i class="fas fa-hospital"></i> Data Scientist, Intern - Qventus</a></h3>
-            <div class="date">February 2025 - Present</div>
+            <h3><a href="" target="_blank" class="org-link"><i class="fa-solid fa-chalkboard"></i> Project Manager</a></h3>
+            <div class="date">February 2021 - December 2023</div>
             <ul>
-                <li>Developing machine learning models to predict case response status and optimize healthcare operations using AWS SageMaker</li>
-                <li>Building risk prediction models for case cancellations using healthcare datasets</li>
-                <li>Implementing data pipelines using Snowflake and AWS (S3, Lambda) to process and analyze healthcare data</li>
+                <li>Led and managed over 10 research projects, ensuring timely completion and adherence to client requirements, resulting in a 20% increase in client satisfaction scores.</li>
+                <li>Developed a standardized project management framework, reducing project turnaround times by 25%.</li>
+                <li>Enhanced data analysis accuracy by 30% through optimized research methodologies, directly contributing to the publication of 5 peer-reviewed papers.</li>
             </ul>
         </div>
-        
+
         <div class="experience-card">
-            <h3><a href="https://www.raydiant.com/" target="_blank" class="org-link"><i class="fas fa-desktop"></i> Data Scientist, Intern - Raydiant</a></h3>
-            <div class="date">October 2024 - February 2025</div>
+            <h3><a href="" target="_blank" class="org-link"><i class="fa-solid fa-atom"></i> Graduate Research Assistant (Dongguk University)</a></h3>
+            <div class="date">March 2019 - February 2021</div>
             <ul>
-                <li>Developed and optimized ETL pipelines using AWS (S3, Glue, Lambda, Athena) to process customer data, reducing processing time by 30% for 3M+ records</li>
-                <li>Built customer churn prediction model using Python and scikit-learn, achieving 85% accuracy and identifying key factors driving customer retention</li>
-                <li>Created interactive executive dashboards using Python and Tableau, providing real-time analytics for cross-functional teams</li>
+                <li>Recipient of Dongguk University Scholarship (fully funded master's scholarship program)</li>
+                <li>Published research on Ag₂O nanoparticles for chemical sensing in wastewater treatment</li>
+                <li>Published research on Ni/NiO-based temperature sensor for wearables</li>
+                <li>Optimized RF magnetron sputtering techniques to fabricate flexible temperature, humidity, UV, and pressure sensors with improved conductivity and mechanical robustness</li>
+                <li>Led research on conductive textiles, pioneering chemical deposition methods for wearable electronics and smart textiles</li>
             </ul>
         </div>
-        
+
         <div class="experience-card">
-            <h3><a href="https://www.axaitech.co.za/" target="_blank" class="org-link"><i class="fas fa-dna"></i> Data Scientist, Intern - Axaitech</a></h3>
-            <div class="date">July 2022 - August 2022</div>
+            <h3><a href="" target="_blank" class="org-link"><i class="fa-solid fa-flask"></i> QA Chemist (DLCI)</a></h3>
+            <div class="date">June 2017 - January 2019</div>
             <ul>
-                <li>Collaborated with team to optimize ML model, reducing gene expression analysis from 58,000 to 16 genes, leading to 75% cost reduction and 60% faster processing</li>
-                <li>Built cancer classification model with 95% accuracy using minimal gene expressions, enabling faster diagnosis and reducing false positives by 40%</li>
-                <li>Conducted data cleaning, visualization, and feature selection using Python, improving model performance by 25%</li>
+                <li>Led quality control and FDA compliance for alcoholic beverage production, ensuring adherence to regulatory standards and industry best practices</li>
+                <li>Managed laboratory operations, overseeing testing protocols, chemical analysis, and safety procedures to maintain product integrity and consistency</li>
+                <li>Developed and validated analytical methods for raw materials and finished products, ensuring compliance with FDA regulations and quality assurance benchmarks</li>
+                <li>Contributed to ISO9001-compliant documentation and the company's regulatory audit and certification process</li>
             </ul>
         </div>
-        
+
         <div class="experience-card">
-            <h3><a href="https://ucladatares.com/" target="_blank" class="org-link"><i class="fas fa-chart-line"></i> Data Scientist, Consultant - DataRes</a></h3>
-            <div class="date">October 2022 - May 2023</div>
+            <h3><a href="" target="_blank" class="org-link"><i class="fa-solid fa-pills"></i> Analytical Method Engineer (Am-Euro Pharma)</a></h3>
+            <div class="date">May 2016 - June 2017</div>
             <ul>
-                <li>Built Python Streamlit dashboard to provide real-time feedback on home descriptions, analyzing 10,000+ listings to identify key factors for content improvement, resulting in 30% higher engagement rates</li>
-                <li>Developed and tuned OCR model for reading wine labels, processing images for accuracy, and creating visualizations to communicate results to stakeholders</li>
+                <li>Developed and validated analytical methods to support FDA registration and ensure full product compliance, focusing on precision, reproducibility, and regulatory alignment</li>
+                <li>Authored detailed dossier documentation, including method validation protocols, stability studies, and analytical reports for regulatory submissions</li>
+                <li>Collaborated with cross-functional teams to support FDA filings and streamline approval timelines through robust data and method transparency</li>
+                <li>Ensured pharmaceutical testing procedures met industry standards and supported long-term product lifecycle compliance</li>                
             </ul>
         </div>
-        
-        <div class="experience-card">
-            <h3><a href="https://linktr.ee/clubsamplingclub" target="_blank" class="org-link"><i class="fas fa-users"></i> Vice President - Club Sampling Club, UCLA</a></h3>
-            <div class="date">September 2022 - June 2023</div>
-            <ul>
-                <li>Led a team to organize and execute events with various campus organizations</li>
-                <li>Managed the club's budget and secured sponsorships to cover event costs</li>
-                <li>Grew the club's membership to over 800 students</li>
-                <li>Raised over $10,000 for the club through fundraising events</li>
-            </ul>
-        </div>
-        
-        <div class="experience-card">
-            <h3><i class="fas fa-chalkboard-teacher"></i> Math Instructor - Matt's Tutoring Services</h3>
-            <div class="date">September 2021 - Present</div>
-            <ul>
-                <li>Tutored 25+ students in subjects including Algebra, Geometry, Calculus, Linear Algebra, Statistics, and Data Science, improving grades by average of 20-30%</li>
-                <li>Managed and delivered tutoring sessions both in-person and virtually via Zoom, maintaining high student engagement</li>
-                <li>Coordinated schedules around students' commitments including sports and extracurricular activities</li>
-            </ul>
-        </div>
+
     </section>
 
 
     <section id="education" class="section">
         <h2>Education</h2>
         <div class="experience-card">
-            <h3><i class="fas fa-graduation-cap"></i> Master's of Science in Data Science (MSDS)</h3>
-            <div class="date"><a href="https://www.usfca.edu/arts-sciences/programs/graduate/data-science" target="_blank" class="org-link"><i class="fas fa-university"></i> University of San Francisco</a> - Expected July 2025</div>
-            <p>Coursework: Linear Regression, Relational Databases, Computation in Python, Statistics, Data Structures and Algorithms, Distributed Computing, Machine Learning, Deep Learning, Experimental Design, Distributed Data Systems, Data Engineering</p>
-        </div>
-        
-        <div class="experience-card">
-            <h3><i class="fas fa-graduation-cap"></i> Bachelor of Science in Data Theory</h3>
-            <div class="date"><a href="https://datatheory.ucla.edu/" target="_blank" class="org-link"><i class="fas fa-university"></i> University of California, Los Angeles (UCLA)</a> - June 2023</div>
+            <h3><i class="fas fa-graduation-cap"></i> MSc in Statistics concentration in Data Science </h3>
+            <div class="date"><a href="" target="_blank" class="org-link"><i class="fas fa-university"></i> California State University - East Bay</a> - Expected December 2025</div>
+            <p>Coursework: </p>
             <ul>
                 <li>GPA: 3.7/4.0</li>
-                <li>Dean's Honors List: Fall 2021, Winter 2022, Winter 2023</li>
-                <li>Roles: Data Scientist at <a href="https://ucladatares.com/" target="_blank">UCLA DataRes</a> and Vice President at <a href="https://linktr.ee/clubsamplingclub" target="_blank">UCLA's Club Sampling Club</a></li>
-                <li>Coursework: Machine Learning, Math Modeling, Python and Technologies for Data Science, Data Analysis and Regression, Statistical Programming with R, Algorithms, Computation and Optimization, SQL</li>
+                <li>Coursework: ANOVA, Linear & Logistic Regression, Probability, Statistical Methods, Machine Learning, Deep Learning, Experimental Design, Distributed Data Systems, Data Engineering, Natural Language Processing</li>
             </ul>
         </div>
         
         <div class="experience-card">
-            <h3><i class="fas fa-graduation-cap"></i> Data Science Certificate</h3>
-            <div class="date"><a href="https://www.ixperience.co/" target="_blank" class="org-link"><i class="fas fa-globe-europe"></i> iXperience</a> - Lisbon, Portugal - August 2022</div>
-            <p>6-week educational experience studying and interning in Data Science, focusing on Python programming, data preprocessing and cleaning methods, data analysis and feature engineering, data visualization, and machine learning techniques</p>
+            <h3><i class="fas fa-graduation-cap"></i> MSc in Chemical Engineering</h3>
+            <div class="date"><a href="" target="_blank" class="org-link"><i class="fas fa-university"></i> Dongguk Univeristy - Seoul</a> March 2019 - February 2021 </div>
+            <ul>
+                <li>GPA: 3.9/4.0</li>
+                <li>Dean's Honors List: Spring 2019, Fall 2019, Spring 2020, Fall 2020</li>
+                <li>Roles: Graduate Research Assistant <a href="https://fdpe.dongguk.edu/" target="_blank">Flexible Display & Printed Electronics</a> </li>
+                <li>Fully funded Master's Scholarship program</li>
+                <li>Coursework: Advanced Interfacial Phenomena, Advanced Cosmetic Engineering, Research Ethics and Writing Method, Advanced Crystal Growth, Special Chemical Engineering Topics, Organic Electronic Materials, Nano-Material Engineering, Advanced Molecular Biotechnology</li>
+            </ul>
         </div>
         
         <div class="experience-card">
-            <h3><i class="fas fa-graduation-cap"></i> Associate for Science in Transfer: Mathematics</h3>
-            <div class="date"><a href="https://www.glendale.edu/" target="_blank" class="org-link"><i class="fas fa-university"></i> Glendale Community College</a> - June 2021</div>
+            <h3><i class="fas fa-graduation-cap"></i> BSc in Chemical Engineering </h3>
+            <div class="date"><a href="" target="_blank" class="org-link"><i class="fas fa-university"></i> Saint Louis University - Philippines</a> - June 2010 - May 2015</div>
             <ul>
-                <li>GPA: 3.9/4.0</li>
-                <li>Dean's Honor Roll: Fall 2019, Spring 2020, Fall 2020, Spring 2021</li>
-                <li>Parker Mathematics Scholarship Recipient</li>
+                <li>GPA: 3.4/4.0</li>
+                <li>Coursework: Chemical Engineering Principles</li>
             </ul>
         </div>
     </section>
@@ -579,10 +613,8 @@ Lately, I've been building ML models for wildfire prediction and experimenting w
         <div class="experience-card">
             <h3><i class="fas fa-hands-helping"></i> Community Service</h3>
             <ul>
-                <li><i class="fas fa-broom"></i> Lower Nob Hill Weekly Cleanup, San Francisco, CA (January 2024-Present): Participate in weekly Sunday community cleanup events to maintain and beautify the neighborhood. <a href="https://www.mobilize.us/togethersf/event/409574/" target="_blank">Event Link</a></li>
-                <li>Project Paper Bag, Los Angeles, CA (2019-2023): Prepared and delivered meals for the homeless</li>
-                <li>Olive Crest, Riverside, CA (2021-2022): Assisted in organizing fundraisers to support children in foster care</li>
-                <li>ACEing Autism, Burbank, CA (2017-2018): Helped teach children with autism how to play tennis</li>
+                <li>Participate in weekly community cleanups along the Marina shoreline in San Francisco, helping maintain public spaces and reduce local pollution</li>
+                <li>Volunteered at the Escape from Alcatraz Triathlon event in Marina, San Francisco, assisting with event logistics and supporting athletes and attendees</li>                
             </ul>
         </div>
     </section>
